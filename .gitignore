@@ -1,0 +1,12 @@
+*~
+*.DS_Store
+application/config/database.php
+application/cache
+application/databases
+application/logs
+production/
+www/assets
+www/ckeditor
+www/hist_sci_fi-tiles
+www/uploads
+www/user_guide
