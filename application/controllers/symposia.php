@@ -215,7 +215,7 @@ class Symposia extends CI_Controller {
 			}
 
 			if( ! empty( $comments )) {
-				$attachments									= $this->Comment_model->get_attachments_for_comments( 'symposium', $comments );
+				$attachments									= $this->Comment_model->get_attachments_for_comments( 'symposium_chapter', $comments );
 				$data['comments_symposia_chapters_attachments']	= post_process_comment_data( $attachments );
 			} else { 
 				$data['comments_symposia_chapters_attachments']	= array();
