@@ -151,7 +151,7 @@ class Media  extends Admin_Login_Controller {
 		$this->load->library('form_validation');	
 
 		// Load upload configuration
-		$config['upload_path']		= "/Volumes/RAID/web_sites/org.xlchc/www/assets/media/";
+		$config['upload_path']		= "/Users/web/Sites/edu.ucsd.xlchc/www/assets/media";
 		$config['allowed_types']	= 'doc|html|pdf|png|gif|jpg|png|jpeg|flv|mp3|mov|mpeg|mpg|zip';
 		$config['max_size']			= '' . (1024 * 20) /*20 megabyte upload limit*/;
 		$config['file_name']		= preg_replace('/\./', '', uniqid(time(), true));

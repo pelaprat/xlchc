@@ -183,7 +183,7 @@ class Login extends CI_Controller {
 		} elseif( $this->input->post('submit') ) {
 
 			// Get the person
-			$p = $this->People_model->get_people_by_nameeople_table_only_by_email( $this->input->post('email') );
+			$p = $this->People_model->get_people_table_only_by_email( $this->input->post('email') );
 
 			if( $p == null ) {
 				$data['custom_error'] = '<div class="error">This email address is not in our system.</p></div>';
@@ -223,10 +223,10 @@ class Login extends CI_Controller {
 
 		$message	= "Dear $user->first $user->last,\n\n" .
 					  "Please click on the following link to complete your password reset.\n\n" .
-					  "http://dev.lchc.ucsd.edu/login/reset_key/$reset_key\n\n".
+					  "http://xlchc.ucsd.edu/login/reset_key/$reset_key\n\n".
 					   "All the best,\nThe Co-Laboratory of Comparative Human Cognition";
 
-		$this->email->from( 'web@dev.lchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
+		$this->email->from( 'web@xlchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
 		$this->email->to( $user->email );
 		$this->email->subject( 'Password Reset' );
 		$this->email->message( $message );

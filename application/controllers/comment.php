@@ -258,7 +258,7 @@ class Comment extends CI_Controller {
 			$random	= mt_rand( 1, 9999999 );
 			$this->load->library('email');
 
-			$this->email->from( 'web@dev.lchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
+			$this->email->from( 'web@xlchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
 			$this->email->to( $user->email );
 			$this->email->subject( "A new comment has been posted [Co-LCHC: $random]" );
 			$this->email->message( $message );

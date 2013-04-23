@@ -244,7 +244,7 @@ $config['encryption_key'] = 'c7FreBesW8BruPa3r3specreb3ces2AM';
 | 'sess_time_to_update'        = how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']        = 'lchc';
+$config['sess_cookie_name']        = 'xlchc';
 $config['sess_expiration']        = 172800;
 $config['sess_expire_on_close']    = TRUE;
 $config['sess_encrypt_cookie']    = TRUE;
@@ -265,7 +265,7 @@ $config['sess_time_to_update']    = 300;
 |
 */
 $config['cookie_prefix']    = '';
-$config['cookie_domain']    = '192.168.1.68';
+$config['cookie_domain']    = 'xlchc.ucsd.edu';
 $config['cookie_path']        = '/';
 
 /*

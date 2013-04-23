@@ -53,10 +53,14 @@
 					<a href='/symposia/detail/<?= $symposium->symposium_id ?>#post_response'>Respond</a>
 				</div>
 			<?php } ?>
+
 		</div>
 
 		<!-- Video URL -->
-		<?php $this->load->view( 'elements/community/box_video', array( 'url' =>  $symposium->url_video )); ?>
+		<div class='span-15 last'>
+		     <div class='span-2'>&nbsp;</div>
+		     <?php $this->load->view( 'elements/community/box_video', array( 'url' =>  $symposium->url_video )); ?>
+		</div>
 
 		<div class='span-15 prepend-top'>
 			<div class='tags span-2 prepend-top'>&nbsp;</div>

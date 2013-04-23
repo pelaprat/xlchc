@@ -43,7 +43,7 @@ class Cron extends CI_Controller {
 			$message .=	"\n\n" . $conversation->subject . "\n"				.
 						"--------------------------------------------\n"	.
 						$conversation->summary . "\n"						.
-						'http://dev.lchc.ucsd.edu/conversations/detail/' .
+						'http://xlchc.ucsd.edu/conversations/detail/' .
 						$conversation->id;
 		}
 
@@ -70,7 +70,7 @@ class Cron extends CI_Controller {
 		$random	= mt_rand( 1, 9999999 );
 		$this->load->library('email');
 
-		$this->email->from( 'web@dev.lchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
+		$this->email->from( 'web@xlchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
 		$this->email->to( $user->email );
 		$this->email->subject( "Daily Digest [Co-LCHC: $random]" );
 		$this->email->message( $message );
