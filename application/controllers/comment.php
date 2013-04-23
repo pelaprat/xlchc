@@ -108,28 +108,27 @@ class Comment extends CI_Controller {
 		}
 
 		/////////////////////////////////////////////////////////////////////
-		// If we have a symposium then email all of the instructors.
+		// If we have a symposium then email all of the members.
 		if( $commentable_s == 'symposium' || $commentable_s == 'symposium_chapter' ) {
 
-			// Get the instructors
-			$instructors = $this->Symposium_model->get_symposia_instructors( $element_data->symposium_id );
+			// Get the members
+			$members = $this->Symposium_model->get_symposia_members( $element_data->symposium_id );
 
 			// Iterate through them
-			foreach( $instructors->result() as $instructor ) {
+			foreach( $members->result() as $member ) {
 
-				// Make sure instructor allows notification
-				if(	$instructor->person_id != $this->current_user->id &&
-					(( $commentable_s == 'symposium'			&& $instructor->pref_notify_on_symposium_reply 	== 1 ) || 
-					( $commentable_s == 'symposium_chapter'		&& $instructor->pref_notify_on_symposium_reply 	== 1 ))) {
+				// Make sure member allows notification
+				if(	$member->person_id != $this->current_user->id && 
+					$member->pref_notify_on_symposium_reply 	== 1 ) {
 
-					$message	= "Dear $instructor->first $instructor->last,\n\n" .
+					$message	= "Dear $member->first $member->last,\n\n" .
 								  "Someone has posted a comment to a symposium in which you are a member. The following URL will get you there.\n\n" .
 								  "$url\n\n".
 								   "All the best,\nThe Co-Laboratory of Comparative Human Cognition";
 
-					$this->notify_person_of_reply( $instructor, $commentable_s, $commentable_id, $added_comment_id, $message );
+					$this->notify_person_of_reply( $member, $commentable_s, $commentable_id, $added_comment_id, $message );
 
-					array_push( $already_sent, $instructor->person_id );
+					array_push( $already_sent, $member->person_id );
 				}
 			}
 		}
