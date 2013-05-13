@@ -176,7 +176,7 @@ if( ! isset($media) ) { ?>
 
 	        	<td class='images'>
 					<?php if( isset( $_GET['mode'] ) && $_GET['mode'] == 'browser' ) { 
-							$media_item['media_id'] = str_replace("'", "\'", $media_item['media_id'] ); ?>
+							$media_item['generic_title'] = str_replace("'", "\'", $media_item['generic_title'] ); ?>
 						<a class="edit" href="javascript:handle_select_media(<?= $media_item['media_id'] ?>, '<?= $media_item['generic_title'] ?>' );">select</a>
 					<?php } else { ?>
 						<a class="edit" href="javascript:handle_show_media('<?= $url ?>');">get url</a>
