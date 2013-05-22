@@ -12,7 +12,10 @@ class Tag_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tags');
 		$this->db->order_by( 'name asc' );
-        $this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
         
         return $this->db->get();
     }

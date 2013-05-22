@@ -11,7 +11,12 @@ class Page_model extends CI_Model {
     function get_pages( $limit = NULL, $offset = NULL ) {
         $this->db->select('*');
         $this->db->order_by('uri asc');
-        $this->db->limit( $limit, $offset );
+
+		if( $limit != NULL && $offset != NULL )
+		{
+			$this->db->limit( $limit, $offset );
+		}
+
         $query = $this->db->get('pages');
 
         return $query;

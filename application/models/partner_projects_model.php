@@ -28,7 +28,12 @@ class Partner_projects_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->order_by('name asc');
-        $this->db->limit( $limit, $offset );
+
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
+
         $query = $this->db->get('partner_projects');
 
         return $query;

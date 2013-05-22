@@ -31,7 +31,9 @@ class Conversation_model extends CI_Model {
 			$this->db->order_by('conversations.created_at asc');
 		}
 
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL ) {
+			$this->db->limit( $limit, $offset );
+		}
 
 		return $this->db->get();
 	}

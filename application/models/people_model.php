@@ -158,7 +158,11 @@ class People_model extends CI_Model {
 		}
 
 		$this->db->order_by('last asc, first asc');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
+
 		$query = $this->db->get('people');
 
 		return $query;
@@ -176,7 +180,10 @@ class People_model extends CI_Model {
 		}
 
 		$this->db->order_by('last asc, first asc');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
 		$query = $this->db->get('people');
 
 		return $query;

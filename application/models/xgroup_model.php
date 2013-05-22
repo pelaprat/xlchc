@@ -20,8 +20,13 @@ class Xgroup_model extends CI_Model {
     {
         $this->db->select('xgroups.*');
         $this->db->order_by('name asc');
-        $this->db->limit( $limit, $offset );
-	$query = $this->db->get_where('xgroups', array('name' => $name)); 
+
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
+
+		$query = $this->db->get_where('xgroups', array('name' => $name)); 
 
         return $query;
     }
@@ -30,8 +35,12 @@ class Xgroup_model extends CI_Model {
     {
         $this->db->select('xgroups.*');
         $this->db->order_by('id asc');
-        $this->db->limit( $limit, $offset );
-	$query = $this->db->get_where('xgroups', array('id' => $id)); 
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
+
+		$query = $this->db->get_where('xgroups', array('id' => $id)); 
 
 	return $query->first_row();
     }

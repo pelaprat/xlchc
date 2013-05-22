@@ -144,7 +144,10 @@ class Symposium_model extends CI_Model {
 		$this->db->join('comments_symposia', 'symposia.id = comments_symposia.symposium_id', 'left');
 		$this->db->group_by( 'symposia.id');
 		$this->db->order_by('symposia.created_at asc');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
 
         return $this->db->get();
     }

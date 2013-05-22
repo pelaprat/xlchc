@@ -19,7 +19,10 @@ class Publication_model extends CI_Model {
 		$this->db->from('join_publications_people');
 		$this->db->join('people', 'join_publications_people.person_id = people.id', 'left inner');
 		$this->db->order_by(' publication_id, join_publications_people.id ');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
 		$this->db->where_in('publication_id', $list);
 
 		$query = $this->db->get();
@@ -46,7 +49,10 @@ class Publication_model extends CI_Model {
 		$this->db->join('media', 'media.id = join_media_anything.media_id', 'left');
 		$this->db->where( 'join_media_anything.foreign_join_table', 'publications' );
 		$this->db->order_by(' publications.title asc, publications.journal_year asc ');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
 		$query = $this->db->get('publications');
 
 		return $query;
@@ -99,7 +105,10 @@ class Publication_model extends CI_Model {
 		$this->db->join('people', 'join_publications_people.person_id = people.id', 'left outer');
 		$this->db->where( 'join_media_anything.foreign_join_table', 'publications' );
 		$this->db->order_by(' publications.title asc, publications.journal_year asc ');
-		$this->db->limit( $limit, $offset );
+		if( $limit != NULL && $offset != NULL )
+		{
+	        $this->db->limit( $limit, $offset );
+		}
 		$query = $this->db->get_where('publications', array( 'person_id' => $id ));
 
 		return $query;
