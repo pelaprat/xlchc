@@ -8,8 +8,8 @@
 		<span class='subject'><a href='/<?= $url ?>/<?php echo $data->id; ?>'><?php echo $data->subject; ?></a></span>
 		<span class='comments'>(<?php echo $comments_n; ?>)</span>
 		<br>
-		<?php $custom_date = new BetterDatetime( $element_created_at ); ?>
-		<span class='byline'>Started <?= $custom_date; ?></b> by <a href='/people/detail/<?= $data->person_id ?>'><?= $data->first ?> <?= $data->last ?></a></span>
+		<?php $custom_date = humanTiming( $element_created_at ); ?>
+		<span class='byline'>Started <?= $custom_date; ?> ago</b> by <a href='/people/detail/<?= $data->person_id ?>'><?= $data->first ?> <?= $data->last ?></a></span>
 		<div style='padding-top: 6px'>
 		<?php foreach( $tags as $tag_array ) { ?>
 			<span class='flag-tag'><?= $tag_array[1] ?></span>
@@ -25,8 +25,8 @@
 		
 			Last updated by<br>
 			<a href='/people/detail/<?= $last[3] ?>'><?= $last[1] ?> <?= $last[2] ?></a><br>
-			<?php $custom_last_date = new BetterDatetime( $last[0] ); ?>
-			<span class='date'><?= $custom_last_date; ?></span>
+			<?php $custom_last_date = humanTiming( $last[0] ); ?>
+			<span class='date'><?= $custom_last_date; ?> ago</span>
 
 		<?php
 			}
