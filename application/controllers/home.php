@@ -76,7 +76,7 @@ class Home extends CI_Controller {
             (object) array('href' => 'assets/scripts/'.strtolower( get_class($this) ).'.js')
         );
 
-        $this->load->view( strtolower( get_class($this) ).'/index', $data );
+	$this->load->view( strtolower( get_class($this) ).'/index', $data );
     }
 
 

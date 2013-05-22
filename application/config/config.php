@@ -14,8 +14,8 @@
 | path to your installation.
 |
 */
-$config['base_url']    = 'http://xlchc.ucsd.edu';
-$config['base_domain'] = 'xlchc.ucsd.edu';
+$config['base_url']    = 'http://lchc-test-1.ucsd.edu/';
+$config['base_domain'] = 'lchc-test-1.ucsd.edu';
 
 /*
 |--------------------------------------------------------------------------
@@ -266,7 +266,7 @@ $config['sess_time_to_update']    = 300;
 |
 */
 $config['cookie_prefix']    = '';
-$config['cookie_domain']    = 'xlchc.ucsd.edu';
+$config['cookie_domain']    = 'lchc-test-1.ucsd.edu';
 $config['cookie_path']        = '/';
 
 /*
