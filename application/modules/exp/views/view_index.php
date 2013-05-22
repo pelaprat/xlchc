@@ -134,7 +134,7 @@
                         
                             $.ajax({
                                 type: "GET",
-                                url: "<?php echo $config['base_domain']; ?>/json_rpc/getPartnerProjectData/" + mapItem.id,
+                                url: "<?php echo $this->config->item('base_domain'); ?>/json_rpc/getPartnerProjectData/" + mapItem.id,
                                 success: function(data){
                                     new google.maps.InfoWindow({content: data[0].description}).open(map, marker);
                                 }
