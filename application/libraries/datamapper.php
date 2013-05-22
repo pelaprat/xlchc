@@ -1444,7 +1444,7 @@ class DataMapper implements IteratorAggregate {
 			$this->limit($limit, $offset);
 		}
 
-		$sql = $this->db->get_compiled_select();
+		$sql = $this->db->_compile_select();
 		$this->_clear_after_query();
 		return $sql;
 	}
@@ -2580,7 +2580,7 @@ class DataMapper implements IteratorAggregate {
 			// COUNT DISTINCT
 			$select = 'SELECT COUNT(DISTINCT ' . $this->db->_protect_identifiers($column) . ') AS ';
 		}
-		$sql = $this->db->get_compiled_select($select . $this->db->_protect_identifiers('numrows'));
+		$sql = $this->db->_compile_select($select . $this->db->_protect_identifiers('numrows'));
 
 		$query = $this->db->query($sql);
 		$this->db->_reset_select();

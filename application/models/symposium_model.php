@@ -191,7 +191,7 @@ class Symposium_model extends CI_Model {
 		$this->db->from( 'join_media_anything' );
 		$this->db->join( 'media', 'join_media_anything.media_id = media.id' );
 		$this->db->where( array( 'foreign_join_table' => "'symposium'", 'foreign_table_row_id' => $id ), NULL, FALSE );
-		$sub_query = $this->db->get_compiled_select();
+		$sub_query = $this->db->_compile_select();
 		$this->db->_reset_select();
 
 		// Now get the publications
@@ -241,7 +241,7 @@ class Symposium_model extends CI_Model {
 		$this->db->from( 'join_media_anything' );
 		$this->db->join( 'media', 'join_media_anything.media_id = media.id' );
 		$this->db->where( array( 'foreign_join_table' => "'symposium_chapter'", 'foreign_table_row_id' => $id ), NULL, FALSE );
-		$sub_query = $this->db->get_compiled_select();
+		$sub_query = $this->db->_compile_select();
 		$this->db->_reset_select();
 
 		// Now get the publications
