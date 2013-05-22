@@ -134,7 +134,7 @@
                         
                             $.ajax({
                                 type: "GET",
-                                url: "http://xlchc.ucsd.edu/json_rpc/getPartnerProjectData/" + mapItem.id,
+                                url: "<?php echo $config['base_domain']; ?>/json_rpc/getPartnerProjectData/" + mapItem.id,
                                 success: function(data){
                                     new google.maps.InfoWindow({content: data[0].description}).open(map, marker);
                                 }

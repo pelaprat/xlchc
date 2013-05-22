@@ -223,10 +223,10 @@ class Login extends CI_Controller {
 
 		$message	= "Dear $user->first $user->last,\n\n" .
 					  "Please click on the following link to complete your password reset.\n\n" .
-					  "http://xlchc.ucsd.edu/login/reset_key/$reset_key\n\n".
+					  $config['base_url'] . "/login/reset_key/$reset_key\n\n".
 					   "All the best,\nThe Co-Laboratory of Comparative Human Cognition";
 
-		$this->email->from( 'web@xlchc.ucsd.edu', 'The Co-Laboratory of Comparative Human Cognition');
+		$this->email->from( 'web@' . $config['base_domain'], 'The Co-Laboratory of Comparative Human Cognition');
 		$this->email->to( $user->email );
 		$this->email->subject( 'Password Reset' );
 		$this->email->message( $message );
