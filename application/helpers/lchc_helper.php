@@ -22,27 +22,6 @@ if ( ! function_exists('load_userdata') )
 		}
 	}
 
-	function humanTiming ( $time )
-	{
-	    $time = time() - $time;
-
-		$tokens = array (
-			31536000 => 'year',
-			2592000 => 'month',
-			604800 => 'week',
-			86400 => 'day',
-			3600 => 'hour',
-			60 => 'minute',
-			1 => 'second'
-		);
-
-		foreach ($tokens as $unit => $text) {
-			if ($time < $unit) continue;
-			$numberOfUnits = floor($time / $unit);
-			return $numberOfUnits.' '.$text.(($numberOfUnits>1)?'s':'');
-		}
-	}
-
 	function userdata_up_points( $me, $amount ) {
 		if( $me->current_user != null ) {
 			$me->current_user->points += $amount;

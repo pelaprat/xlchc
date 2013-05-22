@@ -12,6 +12,7 @@ class Conversations extends CI_Controller {
 		$this->load->model('Tag_model', '', TRUE);
 
 		$this->load->library('form_validation');
+		$this->load->library('betterdatetime');
 
 		$this->current_user = userdata_load();
 		$this->load->vars( $this->current_user );

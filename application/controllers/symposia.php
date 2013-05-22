@@ -9,6 +9,8 @@ class Symposia extends CI_Controller {
 		parent::__construct();
 
 		$this->current_user = userdata_load();
+
+		$this->load->library('betterdatetime');
 		$this->load->vars( $this->current_user );
 
 		$this->user_reputation_points = $this->config->item('user_reputation_points');

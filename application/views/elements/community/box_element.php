@@ -10,8 +10,8 @@
 		<span class='subject'><a href='/<?= $url ?>/<?php echo $data->id; ?>'><?php echo $data->subject; ?></a></span>
 		<span class='comments'>(<?php echo $comments_n; ?>)</span>
 		<br>
-		<?php $custom_date = humanTiming( $element_created_at ); ?>
-		<span class='byline'>Started <?= $custom_date; ?> ago</b></span><br>
+		<?php $custom_date = new BetterDateTime( $element_created_at ); ?>
+		<span class='byline'>Started <?= $custom_date; ?></b></span><br>
 
 		<div style='padding: 2px'></div>
 

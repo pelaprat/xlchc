@@ -10,8 +10,6 @@ class Comment extends CI_Controller {
 		$this->load->model( 'Comment_model' );
 		$this->load->model( 'Media_model' );
 
-		$this->load->library('betterdatetime');
-
 		// Set config for uploads
 		$config['file_name']		= preg_replace('/\./', '', uniqid(time(), true));
 		$config['upload_path']		= "/Volumes/RAID/web_sites/org.xlchc/www/assets/media/";
@@ -20,6 +18,7 @@ class Comment extends CI_Controller {
 
 		// Load upload library with config
 		$this->load->library( 'upload', $config );
+		$this->load->library('betterdatetime');
 
 		$this->current_user = userdata_load();
 		$this->load->vars( $this->current_user );
